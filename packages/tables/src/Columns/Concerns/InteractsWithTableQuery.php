@@ -94,6 +94,7 @@ trait InteractsWithTableQuery
 
         foreach ($this->getSearchColumns() as $searchColumnName) {
             $whereClause = $isFirst ? 'where' : 'orWhere';
+            $searchColumnName = (string)$searchColumnName;
 
             $query->when(
                 method_exists($model, 'isTranslatableAttribute') && $model->isTranslatableAttribute($searchColumnName),
